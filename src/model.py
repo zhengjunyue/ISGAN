@@ -16,7 +16,7 @@ from sklearn.manifold import TSNE
 class UVTGAN():
    def __init__(self, sess):
       self.sess = sess
-      self.time_step = args.time_step
+      self.time_step = args.time_step #64
       self.sample_rate = args.sample_rate
       self.batch_size = args.batch_size #64
       print ("Time Span for audio : %.3f sec" %(float(self.time_step) * 0.005))
