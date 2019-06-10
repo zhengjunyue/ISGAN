@@ -18,17 +18,17 @@ class UVTGAN():
       self.sess = sess
       self.time_step = args.time_step
       self.sample_rate = args.sample_rate
-      self.batch_size = args.batch_size
+      self.batch_size = args.batch_size #64
       print ("Time Span for audio : %.3f sec" %(float(self.time_step) * 0.005))
-      self.vector_length = args.vector_length
-      self.channel_size = args.channel_size
-      self.Lambda = args.Lambda
-      self.fp16_scale = args.fp16_scale if args.use_fp16 else 1.0
-      self.use_fp16 = args.use_fp16
+      self.vector_length = args.vector_length #1
+      self.channel_size = args.channel_size #128
+      self.Lambda = args.Lambda  #1.0
+      self.fp16_scale = args.fp16_scale if args.use_fp16 else 1.0 #128
+      self.use_fp16 = args.use_fp16 #false
       if args.is_training:
          self.data_generator = multiproc_reader()
          self.procs = self.data_generator.start_enqueue()
-      self.sample_num = args.sample_num
+      self.sample_num = args.sample_num #Number of Audios per Sample, 5
       self.sample_data_generator = sample_data_generator()
       self.test_data_generator = test_data_generator()
       self.gen_options = make_options("generator",
